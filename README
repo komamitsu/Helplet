@@ -1,0 +1,44 @@
+Helplet
+=======
+
+This plugin provides a helper for help screen. The helper creates html and javascript codes what access to the database table asynchronously and display the help screen.
+
+
+Usage
+=======
+
+With the plugin installed, you may generate helper, controller, migration file and so on.
+
+To use:
+----------------------------------------------
+  ruby script/generate helplet
+  rake db:migrate
+----------------------------------------------
+
+
+If your rails version is < 2.0, you should include HelpHelper in ApplicationHelper.
+
+
+Example
+=======
+
+If you want to display the help screen, you only need to add get_help() helper method
+(hash key ":edit" should be false or not set). Then a link will be generated.
+
+----------------------------------------------
+  <div id='help_area'>here is.</div>
+        :
+        :
+  <%= get_help(:key => '1st_help', :disp_name => 'test get_help', :div_id => 'help_area') %>
+----------------------------------------------
+
+If the help content specified by the key exists in the database table, the target div will be replaced by clicking the link.  You can use floating window (e.g. Prototype Window) and display help content in it.
+
+If you call get_help() with ":edit => true", the edit form will show.
+
+HTML template files of help screens are set in "config/helplet" directory.
+You can modify these files as you want.
+
+
+Copyright (c) 2009 Mitsunori Komatsu, released under the MIT license
+

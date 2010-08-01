@@ -1,0 +1,19 @@
+<h1>Editing help</h1>
+
+<% remote_form_for(:help, 
+    :url => { :controller => :helps, :action => :update },
+    :success => "alert('Updated successfully')"
+  ) do |f| %>
+  <%= f.hidden_field :id %>
+  <%= f.hidden_field :key %>
+  <p>
+    <label for="help_title"><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <label for="help_description"><br />
+    <%= f.text_area :description %>
+  </p>
+  <%= submit_tag 'Update' %>
+<% end %>
+
